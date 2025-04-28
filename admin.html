@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transleatha - Admin Dashboard</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="wallet.html">Wallet</a>
+    <a href="customs.html">Customs</a>
+    <a href="logistics.html">Logistics</a>
+    <a href="helpcenter.html">Help Center</a>
+    <a href="admin-login.html" style="color: gold;">Admin</a>
+  </nav>
+
+  <!-- Admin Dashboard Section -->
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Customs Documents Approval Section -->
+    <h2>Pending Customs Documents</h2>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Document ID</th>
+          <th>Document Name</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>doc123</td>
+          <td>Export Permit - Nigeria</td>
+          <td id="status-doc123" class="status-pending">Pending</td>
+          <td><button class="button" onclick="approveDocument('doc123')">Approve</button></td>
+        </tr>
+        <tr>
+          <td>doc124</td>
+          <td>Form M - Niger</td>
+          <td id="status-doc124" class="status-pending">Pending</td>
+          <td><button class="button" onclick="approveDocument('doc124')">Approve</button></td>
+        </tr>
+        <tr>
+          <td>doc125</td>
+          <td>Phytosanitary Certificate - Mali</td>
+          <td id="status-doc125" class="status-pending">Pending</td>
+          <td><button class="button" onclick="approveDocument('doc125')">Approve</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Add New Product Section -->
+    <h2 style="margin-top: 50px;">Add New Product to Marketplace</h2>
+    <input id="newProductName" type="text" placeholder="Product Name" style="padding: 10px; width: 70%; margin-top: 10px;">
+    <input id="newProductPrice" type="text" placeholder="Product Price (e.g., 30,000 NGN)" style="padding: 10px; width: 70%; margin-top: 10px;">
+    <input id="newProductCountry" type="text" placeholder="Country of Origin (e.g., Nigeria)" style="padding: 10px; width: 70%; margin-top: 10px;">
+    <br><br>
+    <button class="button" onclick="addNewProduct()">Add Product</button>
+
+    <!-- Preview New Products -->
+    <h2>New Products Preview</h2>
+    <div id="marketplaceProducts" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;"></div>
+
+    <!-- Admin Logout -->
+    <div style="margin-top: 50px; text-align: center;">
+      <button class="button" onclick="adminLogout()">Logout</button>
+    </div>
+
+  </div>
+
+  <!-- Navigation Highlight Script -->
+  <script src="js/navigation.js"></script>
+
+  <!-- Admin Dashboard Logic -->
+  <script src="js/admin.js"></script>
+
+  <!-- Inline Admin Logout Script -->
+  <script>
+    function adminLogout() {
+      alert('Logged out successfully!');
+      window.location.href = 'admin-login.html';
+    }
+  </script>
+
+</body>
+</html>

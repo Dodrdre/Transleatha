@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transleatha - Customs Upload</title>
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Page-Specific Internal Styles -->
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+      color: #0A1A2F;
+    }
+    .upload-container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input[type="file"], input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .button {
+      background-color: gold;
+      color: #0A1A2F;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #FFD700;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Menu -->
+  <nav style="background-color: #0A1A2F; padding: 15px; text-align: center;">
+    <a href="index.html" style="color: gold; margin: 0 15px; text-decoration: none; font-weight: bold;">Home</a>
+    <a href="marketplace.html" style="color: white; margin: 0 15px; text-decoration: none;">Marketplace</a>
+    <a href="wallet.html" style="color: white; margin: 0 15px; text-decoration: none;">Wallet</a>
+    <a href="customs.html" style="color: white; margin: 0 15px; text-decoration: none;">Customs</a>
+    <a href="logistics.html" style="color: white; margin: 0 15px; text-decoration: none;">Logistics</a>
+    <a href="helpcenter.html" style="color: white; margin: 0 15px; text-decoration: none;">Help Center</a>
+  </nav>
+
+  <!-- Main Customs Upload Container -->
+  <div class="upload-container">
+    <h2>Customs Document Upload</h2>
+
+    <p>Please upload your required customs documents to facilitate cross-border trade clearance.</p>
+
+    <!-- Customs Upload Form -->
+    <form id="customsForm" enctype="multipart/form-data">
+      <input type="text" id="docTitle" placeholder="Document Title (e.g., Export Permit)" required><br>
+      <input type="file" id="docFile" accept=".pdf, .docx, .jpg, .png" required><br><br>
+      <button type="button" class="button" onclick="submitCustomsDoc()">Upload Document</button>
+    </form>
+
+    <!-- Upload Result Message -->
+    <p id="uploadResult" style="margin-top: 20px; font-weight: bold;"></p>
+  </div>
+
+  <!-- External Script for Navigation Highlight -->
+  <script src="js/navigation.js"></script>
+
+  <!-- Internal Script to Simulate Upload -->
+  <script>
+    function submitCustomsDoc() {
+      const title = document.getElementById('docTitle').value.trim();
+      const file = document.getElementById('docFile').files[0];
+      const result = document.getElementById('uploadResult');
+
+      if (title && file) {
+        result.innerText = "✅ " + title + " uploaded successfully!";
+        document.getElementById('customsForm').reset();
+      } else {
+        result.innerText = "❌ Please fill all fields and upload a valid file.";
+      }
+    }
+  </script>
+
+</body>
+</html>

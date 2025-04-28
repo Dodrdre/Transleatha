@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transleatha - Logistics Tracker</title>
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Page-Specific Internal Styles -->
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+      color: #0A1A2F;
+    }
+    .tracker-container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .shipment-stage {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      margin-top: 10px;
+      background-color: gray;
+      color: white;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    .badge.in-transit {
+      background-color: orange;
+    }
+    .badge.border-cleared {
+      background-color: green;
+    }
+    .badge.delivered {
+      background-color: blue;
+    }
+    img.map-image {
+      margin-top: 30px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #0A1A2F;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Menu -->
+  <nav style="background-color: #0A1A2F; padding: 15px; text-align: center;">
+    <a href="index.html" style="color: gold; margin: 0 15px; text-decoration: none; font-weight: bold;">Home</a>
+    <a href="marketplace.html" style="color: white; margin: 0 15px; text-decoration: none;">Marketplace</a>
+    <a href="wallet.html" style="color: white; margin: 0 15px; text-decoration: none;">Wallet</a>
+    <a href="customs.html" style="color: white; margin: 0 15px; text-decoration: none;">Customs</a>
+    <a href="logistics.html" style="color: white; margin: 0 15px; text-decoration: none;">Logistics</a>
+    <a href="helpcenter.html" style="color: white; margin: 0 15px; text-decoration: none;">Help Center</a>
+  </nav>
+
+  <!-- Main Tracker Container -->
+  <div class="tracker-container">
+    <h2>Logistics Tracker</h2>
+
+    <!-- Track Shipment Form -->
+    <div style="margin-top: 30px;">
+      <h3>Track Your Shipment</h3>
+
+      <!-- Demo Shipment IDs Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Shipment ID</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DOC123</td>
+            <td>In Transit - Kano, Nigeria</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td>DOC124</td>
+            <td>Cleared Border - Gaya, Niger</td>
+          </tr>
+          <tr>
+            <td>DOC125</td>
+            <td>Delivered - Bamako, Mali</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Input and Track Button -->
+      <input type="text" id="shipmentId" placeholder="Enter Shipment ID" style="padding: 10px; width: 60%; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc;">
+      <br><br>
+      <button class="button" onclick="trackShipment()">Track</button>
+      <p id="trackResult" style="margin-top: 20px; font-weight: bold;"></p>
+    </div>
+
+    <!-- Shipment Stages Timeline -->
+    <div style="margin-top: 50px;">
+      <div class="shipment-stage">
+        Start: Kano, Nigeria
+        <div class="badge in-transit">In Transit</div>
+      </div>
+
+      <div class="shipment-stage">
+        Border Crossing: Gaya Border (Nigeria - Niger)
+        <div class="badge border-cleared">Border Cleared</div>
+      </div>
+
+      <div class="shipment-stage">
+        Final Delivery: Bamako, Mali
+        <div class="badge delivered">Delivered</div>
+      </div>
+    </div>
+
+    <!-- Static Map Image -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/West_Africa_Map.png/640px-West_Africa_Map.png" alt="West Africa Map" class="map-image">
+
+  </div>
+
+  <!-- External Script for Navigation Highlight -->
+  <script src="js/navigation.js"></script>
+
+  <!-- Internal Script for Shipment Tracking -->
+  <script>
+    function trackShipment() {
+      const shipmentId = document.getElementById('shipmentId').value.trim();
+      const result = document.getElementById('trackResult');
+
+      if (shipmentId === 'DOC123') {
+        result.innerText = "Shipment is In Transit from Kano, Nigeria.";
+      } else if (shipmentId === 'DOC124') {
+        result.innerText = "Shipment has Cleared Border at Gaya (Nigeria-Niger).";
+      } else if (shipmentId === 'DOC125') {
+        result.innerText = "Shipment Delivered in Bamako, Mali.";
+      } else {
+        result.innerText = "Shipment ID not found. Please check and try again.";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transleatha - Help Center</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="wallet.html">Wallet</a>
+    <a href="customs.html">Customs</a>
+    <a href="logistics.html">Logistics</a>
+    <a href="helpcenter.html" class="active">Help Center</a>
+    <a href="admin-login.html">Admin</a>
+  </nav>
+
+  <!-- Help Center Section -->
+  <div class="container">
+    <h1>Help Center - Chatbot Support</h1>
+
+    <p>Ask any question about your trade, customs, logistics, or payments.  
+    Our multilingual chatbot will assist you in English, French, or Hausa!</p>
+
+    <!-- Chatbot Message Area -->
+    <div id="chatArea" style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 30px;">
+      <p><strong>Bot:</strong> Hello! How can I assist you today?</p>
+    </div>
+
+    <!-- Chat Input -->
+    <input type="text" id="chatInput" placeholder="Type your question here..." style="padding: 10px; width: 70%; margin-top: 20px; border-radius: 5px; border: 1px solid #ccc;">
+    <br><br>
+    <button class="button" onclick="sendChat()">Send</button>
+
+    <!-- Language Switcher -->
+    <h3 style="margin-top: 50px;">Switch Language</h3>
+    <select id="languageSelect" onchange="switchLanguage()" style="padding: 10px; border-radius: 5px;">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="ha">Hausa</option>
+    </select>
+
+  </div>
+
+  <!-- Navigation Highlight Script -->
+  <script src="js/navigation.js"></script>
+
+  <!-- Chatbot Logic Script -->
+  <script src="js/chatbot.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transleatha - Admin Login</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="wallet.html">Wallet</a>
+    <a href="customs.html">Customs</a>
+    <a href="logistics.html">Logistics</a>
+    <a href="helpcenter.html">Help Center</a>
+    <a href="admin-login.html" class="active">Admin</a>
+  </nav>
+
+  <!-- Admin Login Section -->
+  <div class="container" style="max-width: 400px; margin-top: 100px;">
+
+    <h1>Admin Login</h1>
+
+    <input id="adminEmail" type="email" placeholder="Admin Email" style="padding: 10px; width: 100%; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc;">
+    <input id="adminPassword" type="password" placeholder="Password" style="padding: 10px; width: 100%; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc;">
+    <br><br>
+    <button class="button" onclick="adminLogin()">Login</button>
+
+  </div>
+
+  <!-- Navigation Highlight Script -->
+  <script src="js/navigation.js"></script>
+
+  <!-- Admin Login Logic -->
+  <script>
+    function adminLogin() {
+      const email = document.getElementById('adminEmail').value;
+      const password = document.getElementById('adminPassword').value;
+
+      // Hardcoded credentials
+      if (email === 'admin@transleatha.com' && password === 'transleatha2025') {
+        alert('Login Successful!');
+        window.location.href = 'admin.html';
+      } else {
+        alert('Access Denied! Incorrect credentials.');
+      }
+    }
+  </script>
+
+</body>
+</html>
